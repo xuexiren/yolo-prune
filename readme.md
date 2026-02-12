@@ -97,6 +97,7 @@ python get_fps.py --weights pruned_model_lamp.pt --batch 32 --half
    - If you load the model within **this project directory**, the code will recognize it automatically.
    - If you load the weights in **another project**, you must ensure that the project contains the class definitions from `prune_module.py`, or export the pruned model to ONNX.
 
+
    ```Python
    # Example of loading the pruned model in another script
    from prune_module import C2f_v2, C3k2_v2, C2PSA_v2 # Must import custom classes first
@@ -116,4 +117,5 @@ python get_fps.py --weights pruned_model_lamp.pt --batch 32 --half
 ## 🤝 Acknowledgements
 
 - [Ultralytics YOLO](https://github.com/ultralytics/ultralytics)
+
 - [Torch-Pruning](https://github.com/VainF/Torch-Pruning)
