@@ -20,9 +20,7 @@ This project specifically addresses the common **Channel Dependency Issues** fou
 
 Please ensure your environment has PyTorch (>= 1.13 recommended) and CUDA installed.
 
-Bash
-
-```
+```Bash
 # 1. Clone this repository
 git clone https://github.com/xuexiren/yolo-prune.git
 cd yolo-prune
@@ -39,9 +37,7 @@ Use the `prune.py` script to complete the "Transform - Prune - Fine-tune" pipeli
 
 **Basic Usage:**
 
-Bash
-
-```
+```Bash
 python prune.py --model_path yolov8n.pt --data coco8.yaml --speed_up 2.0 --prune_method lamp
 ```
 
@@ -61,9 +57,7 @@ python prune.py --model_path yolov8n.pt --data coco8.yaml --speed_up 2.0 --prune
 
 Use `get_fps.py` to test the actual inference speed of the model before and after pruning.
 
-Bash
-
-```
+```Bash
 # Test original model
 python get_fps.py --weights yolov8n.pt --batch 32 --imgs 640 640
 
@@ -103,23 +97,19 @@ python get_fps.py --weights pruned_model_lamp.pt --batch 32 --half
    - If you load the model within **this project directory**, the code will recognize it automatically.
    - If you load the weights in **another project**, you must ensure that the project contains the class definitions from `prune_module.py`, or export the pruned model to ONNX.
 
-   Python
-
-   ```
+   ```Python
    # Example of loading the pruned model in another script
    from prune_module import C2f_v2, C3k2_v2, C2PSA_v2 # Must import custom classes first
    from ultralytics import YOLO
    
    model = YOLO("pruned_model.pt")
    ```
-
+   
 2. **Export to ONNX**:
 
    Pruned models support ONNX export. Once exported, the model no longer depends on the custom Python code and is suitable for deployment.
 
-   Bash
-
-   ```
+   ```Bash
    yolo export model=pruned_model.pt format=onnx opset=13
    ```
 
