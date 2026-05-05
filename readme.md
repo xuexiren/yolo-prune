@@ -1,5 +1,7 @@
 # YOLO-Pruning: Pruning for YOLOv8 / YOLO11 / YOLO26 🚀
 
+[中文文档](readme_zh.md)
+
 A structured pruning tool for YOLO models based on [Ultralytics](https://github.com/ultralytics/ultralytics) and [Torch-Pruning](https://github.com/VainF/Torch-Pruning).
 
 This project specifically addresses the common **Channel Dependency Issues** found in structured pruning of YOLO series models. It supports fully automatic pruning and fine-tuning for **YOLOv8**, **YOLO11**, and **YOLO26**.
@@ -105,7 +107,7 @@ python get_fps.py --weights pruned_model_lamp.pt --batch 32 --half
    
    model = YOLO("pruned_model.pt")
    ```
-   
+
 2. **Export to ONNX**:
 
    Pruned models support ONNX export. Once exported, the model no longer depends on the custom Python code and is suitable for deployment.
